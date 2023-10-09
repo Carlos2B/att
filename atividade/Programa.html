@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa</title>
+</head>
+
+<body style="background-color: rgba(20, 21, 88, 0.438);"></body>
+<div>
+    <center>
+        <h1>Olá!</h1>
+    </center>
+</div>
+<button onclick="media()">Média</button><br>
+<button onclick="bemvindo()">Bem-vindo</button><br>
+<div>
+    <center> <input type="number" id="temperatura" placeholder="Digite atemperatura">
+        <button onclick="converte()">Converter</button><br>
+        <input id="cf" type="radio" name="temperatura">Celsius para Fahrenheit</input><br>
+        <input id="ck" type="radio" name="temperatura">Celsius para Kelvin</input><br>
+        <input id="fc" type="radio" name="temperatura">Fahrenheit para Celsius</input><br>
+        <input id="fk" type="radio" name="temperatura">Fahrenheit para kelvin</input><br>
+        <input id="kc" type="radio" name="temperatura">Kelvin para Celsiust</input><br>
+        <input id="kf" type="radio" name="temperatura">Kelvin para Fahrenheit</input><br>
+        <p id="resultado"></p>
+    </center>
+</div>
+
+
+</body>
+
+</html>
+<script>
+    function media() {
+        var q = prompt("Digite a quantidades de numero para media!")
+        var resultado, soma = 0
+        for (var i = 1; i <= q; i++) {
+            soma += Number(prompt("digite " + i + "º numero para tirar a media!! \n"))
+
+
+        }
+        resultado = soma / q
+        alert("A média é : " + resultado)
+    }
+
+</script>
+<script>
+    function bemvindo() {
+        var nome, atualAno, anoNasci, idadeAno
+        var nome = prompt("Escreva seu nome !!")
+        alert("Bem vindo " + nome)
+        var anoNasci = prompt("Digite o ano em que você nasceu!")
+        var atualAno = prompt("Em que ano estamos ??")
+        idadeAno = atualAno - anoNasci
+        alert("Esse ano você completa" + idadeAno)
+        if (idadeAno >= 18) {
+            alert("Você ja é maior de idade! cuidado para não ser preso!kkk")
+        }
+        else {
+            alert("Você ainda é de menor, vai para a escola vagabundo!!")
+        }
+    }  
+</script>
+<script>
+    function converte() {
+        var temperatura = Number(document.getElementById("temperatura").value)
+        var resultado = 0
+        if (document.getElementById("cf").checked) {
+
+
+            resultado = temperatura * (9 / 5) + 32
+
+        }
+        else if (document.getElementById("ck").checked) {
+            resultado = temperatura + 273.15
+        }
+
+
+        else if (document.getElementById("fc").checked) {
+            resultado = (temperatura - 32) * 5 / 9
+        }
+
+
+        else if (document.getElementById("fk".checked)) {
+            resultado = (temperatura - 32) * (5 / 9) + 273
+        }
+
+
+        else if (document.getElementById("kc").checked) {
+            resultado = (temperatura - 273.15)
+        }
+
+
+        else if (document.getElementById("kf").checked) {
+            resultado = (temperatura - 273.15) * (9 / 5) + 32
+        }
+
+
+        document.getElementById("resultado").innerHTML = resultado
+
+    }
+</script>
